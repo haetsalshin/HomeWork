@@ -1,0 +1,23 @@
+package com.biz.homework.exec;
+
+import com.biz.homework.service.StudentService;
+import com.biz.homework.service.StudentServiceImplV1;
+
+public class StudentEx_01 {
+	
+	public static void main(String[] args) {
+		
+		StudentService studentService = new StudentServiceImplV1();
+		
+		while(true) {
+			if(!studentService.input()) {
+				studentService.loadInfo();
+				
+				break;
+			}
+		}
+		studentService.list();
+		studentService.saveInfo();
+	}
+
+}

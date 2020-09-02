@@ -1,0 +1,79 @@
+package com.biz.jack.service;
+
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+import com.biz.jack.domain.DeckVO;
+
+/*
+ * 게임에서 사용할 1벌의 게임카드를 생성
+ */
+public class DeckServiceV1 {
+	
+	// 생성도니 1벌의 카드를 리스트에 저장
+	List<DeckVO> deckList;
+	
+	String suit = "다이아몬드◆:하트♥:스페이드♠:클로버♣";
+	String[] arrSuit = new String[] {
+			
+			"다이아몬드◆","하트♥","스페이드♠","클로버♣"
+	};
+	
+	
+	String denomintion = "A234567890KQJ";
+	
+	public DeckServiceV1() {
+
+		this.deckList = new LinkedList<DeckVO>();
+	}
+	
+	public List<DeckVO> getDeckList(){
+		
+		for(DeckVO vo : deckList) {
+			Collections.shuffle(this.deckList);
+		}
+		
+		
+		Collections.shuffle(this.deckList);
+		return this.deckList;
+	}
+ 	
+	
+	public void makeDeck() {
+		String[] denoms = denomintion.split("");
+		for(String suit : arrSuit) {
+			
+			for(String denom : denoms) {
+				// 각 카드가 갖게 될 value을 생성
+				// value값은 denoms를 기준으로 생성
+				// 2~9까지는 보이는 값 그대로
+				// A는 1, JQKA는 10으로
+				
+				int intValue =0;
+				
+				try {
+					// 숫자 2~9.0까지는 각각 값들이 정수로
+					// 정상 변환이 될 것이다.
+					// 하지만 A, KLQ는 Exception이 발생을 할 것이다.
+					intValue = Integer.valueOf(denom);
+				} catch (Exception e) {
+					if(denom.equals("A")) {
+						intValue = 1;
+					}else {
+						intValue = 10;
+					}
+				}
+				
+				
+				
+				
+			}
+			
+		}
+		
+	}
+	
+	
+	
+}

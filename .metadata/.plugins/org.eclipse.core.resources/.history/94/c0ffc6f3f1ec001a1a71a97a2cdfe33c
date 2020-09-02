@@ -1,0 +1,9 @@
+package com.biz.game;
+
+public class GameVO {
+	
+	private String player="";
+	private int score1;
+	private int score2;
+
+}

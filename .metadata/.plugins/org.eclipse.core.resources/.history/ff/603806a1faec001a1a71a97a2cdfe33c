@@ -1,0 +1,16 @@
+package com.biz.game;
+
+public class GameEx_01 {
+	
+	public GameService gameService = new GameServiceImplV1();
+	
+	public static void main(String[] args) {
+	
+		while(true) {
+			if()
+		}
+		
+		
+	}
+
+}

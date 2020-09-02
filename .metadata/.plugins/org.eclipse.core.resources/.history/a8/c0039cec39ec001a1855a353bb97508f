@@ -1,0 +1,11 @@
+package com.biz.homework.service;
+
+import java.util.List;
+
+public class BookService {
+	
+	private List<BookVO> bookList;
+	
+	
+
+}

@@ -1,0 +1,42 @@
+package com.biz.bus;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class BusServiceImplV1 implements BusService {
+
+	private Scanner scan;
+	private List<BusVO> busList;
+	
+	@Override
+	public boolean calc() {
+		scan = new Scanner(System.in);
+		busList = new ArrayList<BusVO>();
+		
+		System.out.print("승객의 나이를 입력하세요 >> ");
+		String strAge = scan.nextLine();
+		
+		try {
+			int intAge = Integer.valueOf(strAge);
+			
+			if(intAge <6) {
+				intAge = 0;
+				System.out.println("만 6세 이하는 0원");
+			}
+			
+			
+			
+		} catch (Exception e) {
+			System.out.println("나이는 숫자만 입력가능합니다.");
+			System.out.println("다시 입력해주세요.");
+			return true;
+		}
+		
+		
+		
+
+		return true;
+	}
+
+}

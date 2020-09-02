@@ -1,0 +1,13 @@
+
+public class BusVO {
+	
+	
+	private int under6 = 0;
+	private int under12 = 800;
+	private int under18 = 1200;
+	private int up65 = 0;
+	private int normal = 1500;
+	
+	
+
+}

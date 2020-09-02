@@ -1,0 +1,17 @@
+package com.biz.bus;
+
+public class Line {
+	
+	public static  String D_LINE="=";
+	public static  String S_LINE="-";
+	
+	static {
+		for(int i = 0; i < 80; i++) {
+			D_LINE += D_LINE;
+			S_LINE += S_LINE;
+		}
+		
+		System.out.println(D_LINE);
+	}
+
+}

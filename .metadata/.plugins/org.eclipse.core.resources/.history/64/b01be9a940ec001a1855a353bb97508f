@@ -1,0 +1,44 @@
+package com.biz.homework.model;
+
+public class StudentVO {
+	
+	private String strCode;
+	private String strName;
+	private String strDept;
+	private int intGrade;
+	private int intTel;
+	public String getStrCode() {
+		return strCode;
+	}
+	public void setStrCode(String strCode) {
+		this.strCode = strCode;
+	}
+	public String getStrName() {
+		return strName;
+	}
+	public void setStrName(String strName) {
+		this.strName = strName;
+	}
+	public String getStrDept() {
+		return strDept;
+	}
+	public void setStrDept(String strDept) {
+		this.strDept = strDept;
+	}
+	public int getIntGrade() {
+		return intGrade;
+	}
+	public void setIntGrade(int intGrade) {
+		this.intGrade = intGrade;
+	}
+	public int getIntTel() {
+		return intTel;
+	}
+	public void setIntTel(int intTel) {
+		this.intTel = intTel;
+	}
+	
+	// getter, setter생성
+	
+
+}

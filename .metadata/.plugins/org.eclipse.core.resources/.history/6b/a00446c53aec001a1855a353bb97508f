@@ -1,0 +1,16 @@
+package com.biz.homework.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class BookVO {
+
+	private String bookCode ="";
+	private String bookName = "";
+	
+	
+	
+	
+	
+}

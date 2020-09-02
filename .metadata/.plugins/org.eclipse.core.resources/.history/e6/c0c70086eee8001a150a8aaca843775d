@@ -1,0 +1,8 @@
+package com.biz.jack.domain;
+/*
+ * 플레잉카드
+ * 한번 52개의 카드(조커 제외)
+ */
+public class DeckVO {
+
+}

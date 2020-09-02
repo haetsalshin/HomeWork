@@ -1,0 +1,24 @@
+package com.biz.homework;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class BookService {
+	
+	public List<BookVO> bookList;
+	public Scanner scan;
+	
+	public BookService() {
+		bookList = new ArrayList<BookVO>();
+	}
+
+	public boolean input() {
+		
+		
+		return true;
+	}
+	
+	
+	
+}

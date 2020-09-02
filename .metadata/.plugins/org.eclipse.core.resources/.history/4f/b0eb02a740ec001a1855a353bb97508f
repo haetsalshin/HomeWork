@@ -1,0 +1,5 @@
+package com.biz.homework.model;
+
+public class StudentVO {
+
+}

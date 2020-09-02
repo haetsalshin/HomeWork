@@ -1,0 +1,43 @@
+
+public class BusVO {
+	
+	
+	private int under6 = 0;
+	private int under12 = 800;
+	private int under18 = 1200;
+	private int up65 = 0;
+	private int normal = 1500;
+	public int getUnder6() {
+		return under6;
+	}
+	public void setUnder6(int under6) {
+		this.under6 = under6;
+	}
+	public int getUnder12() {
+		return under12;
+	}
+	public void setUnder12(int under12) {
+		this.under12 = under12;
+	}
+	public int getUnder18() {
+		return under18;
+	}
+	public void setUnder18(int under18) {
+		this.under18 = under18;
+	}
+	public int getUp65() {
+		return up65;
+	}
+	public void setUp65(int up65) {
+		this.up65 = up65;
+	}
+	public int getNormal() {
+		return normal;
+	}
+	public void setNormal(int normal) {
+		this.normal = normal;
+	}
+	
+	
+
+}

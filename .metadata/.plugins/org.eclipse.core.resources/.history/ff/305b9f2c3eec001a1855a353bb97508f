@@ -1,0 +1,14 @@
+package com.biz.homework;
+
+public class BookEx_01 {
+	
+	BookService bookService = new BookService();
+	
+	while(true) {
+		if(!bookService.input()) {
+			break;
+		}
+	
+	}
+}
+}

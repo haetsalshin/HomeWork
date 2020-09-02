@@ -1,0 +1,12 @@
+package com.biz.bus;
+
+public class Line {
+	
+	public static final String D_LINE="";
+	public static final String S_LINE="";
+	
+	static {
+		
+	}
+
+}

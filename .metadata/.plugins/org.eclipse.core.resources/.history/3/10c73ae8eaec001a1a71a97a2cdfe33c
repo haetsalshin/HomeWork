@@ -1,0 +1,11 @@
+package com.biz.bus;
+
+public class BusServiceImplV1 implements BusService {
+
+	@Override
+	public void calc() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

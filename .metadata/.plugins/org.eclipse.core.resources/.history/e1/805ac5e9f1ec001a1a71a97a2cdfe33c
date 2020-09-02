@@ -1,0 +1,5 @@
+package com.biz.game;
+
+public class GameVO {
+
+}

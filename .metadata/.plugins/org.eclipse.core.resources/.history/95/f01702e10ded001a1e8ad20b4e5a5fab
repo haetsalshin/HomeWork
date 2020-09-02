@@ -1,0 +1,17 @@
+package com.biz.homework.model;
+
+public class StudentVO {
+	
+	private String strCode;
+	private String strName;
+	private String strDept;
+	private int intGrade;
+	private String intTel;
+	
+	
+	// getter, setter생성
+	
+	
+	
+
+}

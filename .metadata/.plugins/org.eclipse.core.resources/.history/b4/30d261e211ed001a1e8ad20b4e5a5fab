@@ -1,0 +1,139 @@
+package com.biz.homework.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import com.biz.config.Line;
+import com.biz.homework.model.StudentVO;
+
+public class StudentServiceImplV1 implements StudentService {
+
+	public Scanner scan;
+	public List<StudentVO> studentList;
+	
+	public StudentServiceImplV1() {
+		scan = new Scanner(System.in);
+		studentList = new ArrayList<StudentVO>();
+	}
+	
+	@Override
+	public boolean input() {
+		
+		StudentVO studentVO = new StudentVO();
+		
+		System.out.print("학번을 입력해주세요 (END : 중지) >> ");
+		String strCode = scan.nextLine();
+		if(strCode.equals("END")) {
+			return false;
+		}
+		int intCode = 0;
+		try {
+			strCode = String.format("%05d", Integer.valueOf(strCode));
+			strCode = String.format("%05d", Integer.valueOf(StrCode));
+			intCode = Integer.valueOf(strCode);
+			
+			if(intCode < 0 || intCode > 99999) {
+				System.out.println("학번은 1~99999사이의 정수만 입력가능합니다");
+				System.out.println("다시 입력해주세요");
+				return true;
+			}
+		} catch (Exception e) {
+			System.out.println("학번은 숫자만 입력가능합니다");
+			System.out.println("다시 입력해주세요");
+			return true;
+		}
+		studentVO.setStrCode(strCode);
+		
+		
+		
+		System.out.print("이름을 입력해주세요 (END : 중지) >> ");
+		String strName = scan.nextLine();
+		if(strName.equals("END")) {
+			return false;
+		}
+		
+		studentVO.setStrName(strName);
+		
+		
+		System.out.print("학과을 입력해주세요 (END : 중지) >> ");
+		String strGrade = scan.nextLine();
+		if(strGrade.equals("END")) {
+			return false;
+		}
+		int intGrade = 0;
+		try {
+			intGrade = Integer.valueOf(strGrade);
+			
+			if(intCode < 0 || intCode > 4) {
+				System.out.println("학번은 1~4사이의 정수만 입력가능합니다");
+				System.out.println("다시 입력해주세요");
+				return true;
+			}
+		} catch (Exception e) {
+			System.out.println("학번은 숫자만 입력가능합니다");
+			System.out.println("다시 입력해주세요");
+			return true;
+		}
+		
+		studentVO.setIntGrade(intGrade);
+		
+		
+		System.out.print("학과을 입력해주세요 (END : 중지) >> ");
+		String strDept = scan.nextLine();
+		if(strDept.equals("END")) {
+			return false;
+		}
+		
+		studentVO.setStrDept(strDept);
+		
+		
+		System.out.print("전화번호를 입력해주세요 (END : 중지) >> ");
+		String strTel = scan.nextLine();
+		if(strTel.equals("END")) {
+			return false;
+		}
+		
+		studentVO.setStrTel(strTel);
+		
+		studentList.add(studentVO);
+		
+		return true;
+	}
+
+	@Override
+	public void saveInfo() {
+
+
+	}
+
+	@Override
+	public void loadInfo() {
+
+
+	}
+
+	@Override
+	public void list() {
+		
+		System.out.println(Line.D_LINE);
+		System.out.println("학생정보 리스트 V1");
+		System.out.println(Line.D_LINE);
+		System.out.println("학번\t이름\t학과\t학년\t전화번호");
+		System.out.println(Line.S_LINE);
+		for(StudentVO sVO : studentList) {
+			
+			System.out.printf(sVO.getStrName() +"\t");
+			System.out.printf(sVO.getStrName() +"\t");
+			System.out.printf(sVO.getStrDept() +"\t");
+			System.out.printf(sVO.getIntGrade() +"\t");
+			System.out.printf(sVO.getStrTel() +"\n");
+			System.out.println(Line.S_LINE);
+		}
+		System.out.println(Line.D_LINE);
+		
+
+
+	}
+
+}

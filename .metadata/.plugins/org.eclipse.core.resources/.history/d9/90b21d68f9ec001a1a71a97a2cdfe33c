@@ -1,0 +1,82 @@
+package com.biz.game;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
+
+public class GameServiceImplV1 implements GameService {
+	
+	public Scanner scan;
+	public List<GameVO> gameList;
+	public Random rnd;
+
+	@Override
+	public boolean play() {
+		scan = new Scanner(System.in);
+		gameList = new ArrayList<GameVO>();
+		GameVO gameVO = new GameVO();
+		rnd = new Random();
+		
+		
+		
+		System.out.print(" 플레이어의 이름을 입력하세요 >> ");
+		String strName =scan.nextLine();
+		
+		System.out.println(Line.D_LINE);
+		System.out.println("신나는 볼링 한판 V1");
+		System.out.println(Line.D_LINE);
+		System.out.println("플레이어 이름 : " + strName);
+		
+		for(int i = 0; i <10 ; i ++) {
+		
+			int strike = 10;
+			int spare = 10;
+			
+			if(gameList.get(i-1).getScore1() == 10) {
+				int intScore1 = rnd.nextInt((10)+1)+strike ;
+				int intScore2 = rnd.nextInt((10)+1)+strike;
+				
+				int roundSum = intScore1 + intScore2;
+				
+				gameVO.setRoundSum(roundSum);
+				
+			}
+			
+			if(gameList.get(i-1).getScore2() == 10) {
+				int intScore1 = rnd.nextInt((10)+1)+spare;
+				int intScore
+			}
+			
+			
+			
+			
+			
+			
+			gameVO.setScore1(intScore1);
+			
+			
+			
+			
+			/*
+			 * if(intScore1 == 10) { int intScore2 = rnd.nextInt((10)+1) + 10;
+			 * gameVO.setScore2(intScore2);
+			 * 
+			 * 
+			 * } else { int intScore2 = rnd.nextInt(10)+1; gameVO.setScore2(intScore2); }
+			 * 
+			 * if(i == 9) { if(gameVO.getScore1() == 10 && gameVO.getScore2() == 10) { int
+			 * intScore3 = rnd.nextInt((10)+1) + 20; gameVO.setScore3(intScore3); }else
+			 * if(game) }
+			 */
+			
+			gameList.add(gameVO);
+		}
+		
+		
+		
+		
+		return false;
+	}
+
+}

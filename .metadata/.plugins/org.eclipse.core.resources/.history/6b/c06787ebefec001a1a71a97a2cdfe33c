@@ -1,0 +1,18 @@
+package com.biz.bus;
+
+public class BusVO {
+	
+	private String passenger ="";
+
+	public String getPassenger() {
+		return passenger;
+	}
+
+	public void setPassenger(String passenger) {
+		this.passenger = passenger;
+	}
+	
+	
+
+
+}

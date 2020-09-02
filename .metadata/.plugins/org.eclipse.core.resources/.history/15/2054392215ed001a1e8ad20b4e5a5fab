@@ -1,0 +1,214 @@
+package com.biz.homework.service;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import com.biz.config.Line;
+import com.biz.homework.model.StudentVO;
+
+public class StudentServiceImplV1 implements StudentService {
+
+	public Scanner scan;
+	protected List<StudentVO> studentList;
+	private String fileName;
+	
+	public StudentServiceImplV1() {
+		scan = new Scanner(System.in);
+		studentList = new ArrayList<StudentVO>();
+		fileName = "src/com/biz/data/student.txt";
+		
+	}
+	
+	@Override
+	public boolean input() {
+		
+		StudentVO studentVO = new StudentVO();
+		
+		System.out.print("학번을 입력해주세요 (END : 중지) >> ");
+		
+		
+		String strCode = scan.nextLine();
+		if(strCode.equals("END")) {
+			return false;
+		}
+		
+		try {
+			strCode = String.format("%05d", Integer.valueOf(strCode));
+			studentVO.setStrCode(strCode);
+			
+			if(Integer.valueOf(strCode) < 0 || Integer.valueOf(strCode) > 99999) {
+				System.out.println("학번은 1~99999사이의 정수만 입력가능합니다");
+				System.out.println("다시 입력해주세요");
+				return true;
+			}
+		} catch (Exception e) {
+			System.out.println("학번은 숫자만 입력가능합니다");
+			System.out.println("다시 입력해주세요");
+			return true;
+		}
+		
+		
+		
+		
+		System.out.print("이름을 입력해주세요 (END : 중지) >> ");
+		String strName = scan.nextLine();
+		if(strName.equals("END")) {
+			return false;
+		}
+		
+		studentVO.setStrName(strName);
+		
+		
+		System.out.print("학년를 입력해주세요 (END : 중지) >> ");
+		String strGrade = scan.nextLine();
+		if(strGrade.equals("END")) {
+			return false;
+		}
+		int intGrade = 0;
+		try {
+			intGrade = Integer.valueOf(strGrade);
+			
+			if(intGrade < 0 || intGrade > 4) {
+				System.out.println("학년은 1~4사이의 정수만 입력가능합니다");
+				System.out.println("다시 입력해주세요");
+				return true;
+			}
+		} catch (Exception e) {
+			System.out.println("학년은 숫자만 입력가능합니다");
+			System.out.println("다시 입력해주세요");
+			return true;
+		}
+		
+		studentVO.setIntGrade(intGrade);
+		
+		
+		System.out.print("학과를 입력해주세요 (END : 중지) >> ");
+		String strDept = scan.nextLine();
+		if(strDept.equals("END")) {
+			return false;
+		}
+		
+		studentVO.setStrDept(strDept);
+		
+		
+		System.out.print("전화번호를 입력해주세요 (END : 중지) >> ");
+		String strTel = scan.nextLine();
+		if(strTel.equals("END")) {
+			return false;
+		}
+		
+		studentVO.setStrTel(strTel);
+		
+		studentList.add(studentVO);
+		
+		return true;
+	}
+
+	@Override
+	public void saveInfo() {
+
+		FileWriter fileWriter = null;
+		PrintWriter printWriter = null;
+		
+		try {
+			fileWriter = new FileWriter(fileName);
+			printWriter = new PrintWriter(fileWriter);
+			
+			
+			for(StudentVO sVO : studentList) {
+				
+				//학번, 이름, 학과, 학년, 전화번호 순
+				printWriter.printf("%s:", sVO.getStrCode());
+				printWriter.printf("%s:", sVO.getStrName());
+				printWriter.printf("%s:", sVO.getStrDept());
+				
+				
+			}
+			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public void loadInfo() {
+		
+		FileReader fileReader = null;
+		BufferedReader buffer = null;
+		
+		try {
+			fileReader = new FileReader(fileName);
+			buffer = new BufferedReader(fileReader);
+			
+			String reader ="";
+			while(true) {
+				reader = buffer.readLine();
+				if(reader == null) {
+					break;
+				}
+				
+				String[] readers = reader.split(":");
+				StudentVO studentVO = new StudentVO();
+				
+				//학번, 이름, 학과, 학년, 전화번호 순
+				studentVO.setStrCode(readers[0]);
+				studentVO.setStrName(readers[1]);
+				studentVO.setStrDept(readers[2]);
+				studentVO.setIntGrade(Integer.valueOf(readers[3]));
+				studentVO.setStrTel(readers[4]);
+				
+				studentList.add(studentVO);
+				
+				
+			}
+			buffer.close();
+			fileReader.close();
+			
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			System.out.println("파일이 없기 때문에 최초 생성합니다.");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			System.out.println("파일을 읽을 수 없습니다.");
+		}
+		
+
+	}
+
+	@Override
+	public void list() {
+		
+		System.out.println(Line.D_LINE);
+		System.out.println("학생정보 리스트 V1");
+		System.out.println(Line.D_LINE);
+		System.out.println("학번\t이름\t학과\t학년\t전화번호");
+		System.out.println(Line.S_LINE);
+		for(StudentVO sVO : studentList) {
+			
+			System.out.printf(sVO.getStrCode() +"\t");
+			System.out.printf(sVO.getStrName() +"\t");
+			System.out.printf(sVO.getStrDept() +"\t");
+			System.out.printf(sVO.getIntGrade() +"\t");
+			System.out.printf(sVO.getStrTel() +"\n");
+			System.out.println(Line.S_LINE);
+		}
+		System.out.println(Line.D_LINE);
+		
+
+
+	}
+
+}

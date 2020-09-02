@@ -1,0 +1,11 @@
+package com.biz.homework;
+
+public class bookServiceImplV1 implements bookService {
+
+	@Override
+	public boolean input() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

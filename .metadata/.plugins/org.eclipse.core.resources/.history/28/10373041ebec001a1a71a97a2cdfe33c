@@ -1,0 +1,18 @@
+package com.biz.bus;
+
+import java.util.Scanner;
+
+public class BusServiceImplV1 implements BusService {
+
+	private Scanner scan;
+	
+	
+	@Override
+	public void calc() {
+		scan = new Scanner(System.in);
+		
+		
+
+	}
+
+}

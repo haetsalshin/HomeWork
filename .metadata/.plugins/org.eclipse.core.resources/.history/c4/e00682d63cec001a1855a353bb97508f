@@ -1,0 +1,44 @@
+package com.biz.homework;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class BookService {
+	
+	public List<BookVO> bookList;
+	public Scanner scan;
+	
+	public BookService() {
+		bookList = new ArrayList<BookVO>();
+	}
+
+	public boolean input() {
+		scan = new Scanner(System.in);
+		BookVO bookVO = new BookVO();
+		
+		System.out.print("학번 (입력종료 : END) >>");
+		
+		
+		String strCode = scan.nextLine();
+		if(strCode.equals("END")) {
+			return false;
+		}
+		
+		try {
+			strCode = String.format("%05d", Integer.valueOf(strCode));
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	
+		
+		
+		
+		
+		return true;
+	}
+	
+	
+	
+}
