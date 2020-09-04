@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
@@ -32,27 +33,35 @@ public class StudentServiceImplV1 implements StudentService {
 		StudentVO studentVO = new StudentVO();
 		
 		System.out.print("학번을 입력해주세요 (END : 중지) >> ");
-		
+		Calendar cal = Calendar.getInstance();
+		int year = cal.get(Calendar.YEAR);
+		String strYear = String.valueOf(year);
 		
 		String strCode = scan.nextLine();
+		
+	
 		if(strCode.equals("END")) {
 			return false;
 		}
 		
+		
 		try {
 			
-			strCode = String.format("%05d", Integer.valueOf(strCode));
+			strCode = String.format("%04d", Integer.valueOf(strCode));
 			
-			if(Integer.valueOf(strCode) < 0 || Integer.valueOf(strCode) > 99999) {
-				System.out.println("학번은 1~99999사이의 정수만 입력가능합니다");
+			if(Integer.valueOf(strCode) < 0 || Integer.valueOf(strCode) > 9999) {
+				System.out.println("학번은 1~9999사이의 정수만 입력가능합니다");
 				System.out.println("다시 입력해주세요");
 				return true;
 			}
+			strCode = strYear+strCode;
+			
 		} catch (Exception e) {
 			System.out.println("학번은 숫자만 입력가능합니다");
 			System.out.println("다시 입력해주세요");
 			return true;
 		}
+		
 		
 		for(StudentVO sVO: studentList) {
 			if(strCode.equals(sVO.getStrCode())) {
@@ -61,7 +70,11 @@ public class StudentServiceImplV1 implements StudentService {
 				return true;
 			}
 		}
+		
+		
 		studentVO.setStrCode(strCode);
+		
+		
 		
 		
 		System.out.print("이름을 입력해주세요 (END : 중지) >> ");
