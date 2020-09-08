@@ -78,9 +78,11 @@ public class GameServiceImplV1 implements GameService {
 
 					System.out.println("그 전판에서 첫번째 스트라이크가 떴을 떄");
 					System.out.printf("1번째 : %d , ", intScore1);
-					System.out.printf("2번째 : %d /n", intScore2);
 					
 					gameVO.setScore1(intScore1);
+					System.out.printf("2번째 : %d /n", intScore2);
+					
+					
 					gameVO.setScore2(intScore2);
 					
 					
